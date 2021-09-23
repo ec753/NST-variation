@@ -13,8 +13,8 @@ from experiment_functions import walking_stims_experiment
 # arguments
 parser = argparse.ArgumentParser()
 
-parser.add_argument("-start", help="starting index for experiments to run") #this helps with parallelization
-parser.add_argument("-stop", help="ending index for experiments to run")
+parser.add_argument("-start", type=int, help="starting index for experiments to run") #this helps with parallelization
+parser.add_argument("-stop",  type=int, help="ending index for experiments to run")
 
 parser.add_argument("-o_dir", help="out directory")
 parser.add_argument("-extend_dur", type=int, 
@@ -32,7 +32,7 @@ with open('log.txt', 'a') as log:log.write('loading initialization data\n')
 histories = np.load(args.o_dir + 'histories/histories.npy')
 
 #preceding_stimuli_files = os.listdir(args.o_dir + 'preceding_stimuli')
-preceding_stimuli_files = [args.o_dir + 'experiment_train_' + str(ind) for ind in range(args.start, args.stop + 1)]
+preceding_stimuli_files = ['experiment_train_' + str(ind) + '.json' for ind in range(args.start, args.stop + 1)]
 
 with open('log.txt', 'a') as log:log.write('beginning experiments\n')
 
