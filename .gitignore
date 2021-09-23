@@ -3,3 +3,6 @@
 *.npy
 *.txt
 *.pkl
+*.db
+*.db-journal
+.ipynb_checkpoints/
