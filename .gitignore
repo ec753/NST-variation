@@ -1,0 +1,5 @@
+# Data files
+*.json
+*.npy
+*.txt
+*.pkl
